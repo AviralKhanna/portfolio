@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (toggle adds `.dark` on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---- Light theme ---- */
+:root {
+  --background: #fafafa;
+  --surface: #ffffff;
+  --surface-2: #f4f2f2;
+  --foreground: #17161a;
+  --muted: #605c5f;
+  --border: #eae6e6;
+  --accent: #dc2626; /* fills / buttons */
+  --accent-foreground: #ffffff;
+  --accent-text: #c11c2b; /* readable red for text on light */
+}
+
+/* ---- Dark theme (red / black, hacker) ---- */
+.dark {
+  --background: #0a0809;
+  --surface: #131011;
+  --surface-2: #1b1618;
+  --foreground: #e9e6e7;
+  --muted: #948d90;
+  --border: #271f21;
+  --accent: #e63946; /* deeper red for fills / buttons (white text) */
+  --accent-foreground: #ffffff;
+  --accent-text: #ff8585; /* softer, legible red for text on dark */
+}
+
+/* Text uses the legible red; fills/buttons use --accent. Brand pages can
+   override --accent-text inline to re-tint their text. */
+.text-accent {
+  color: var(--accent-text);
+}
+
+/* Derived — works even when --accent is overridden inline (brand theming) */
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
+}
+
+/* Elegant serif display face for large headings */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* Mono for small hacker-flavored accents (eyebrows, labels, code bits) */
+.font-mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+/* accent-soft is computed from whatever --accent currently is */
+.bg-accent-soft {
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.hover\:bg-accent-soft:hover {
+  background-color: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.ring-accent-soft {
+  --tw-ring-color: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+.border-accent-40 {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+/* Big-name wordmarks tint to their brand color on hover */
+.brand-name:hover {
+  color: var(--bn);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+}
+
+/* Faint CRT scanlines — subtle hacker texture (dark theme only) */
+.dark body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 77, 77, 0.025) 0px,
+    rgba(255, 77, 77, 0.025) 1px,
+    transparent 1px,
+    transparent 4px
+  );
+}
+
+/* Soft ambient glow backdrop */
+.glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      40rem 24rem at 15% -5%,
+      color-mix(in srgb, var(--accent) 16%, transparent),
+      transparent 70%
+    );
+}
+
+/* Faint dotted grid */
+.bg-grid {
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse 70% 55% at 50% 0%, #000 30%, transparent 100%);
+}
+
+/* Reveal-on-load */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.reveal-2 { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both; }
+.reveal-3 { animation: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) 0.16s both; }
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: var(--background); }
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 6px;
+  border: 3px solid var(--background);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--muted); }
