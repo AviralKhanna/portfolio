@@ -11,7 +11,7 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Projects"
         title="Things I've designed, built, and shipped."
-        intro="From patented agentic-AI systems and geospatial ML to full-stack products used by hundreds of people. Click any card for the full write-up."
+        intro="From patented agentic-AI systems and geospatial ML to full-stack products used by hundreds of people. Flip a card to explore, then select Details for the full write-up."
       />
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

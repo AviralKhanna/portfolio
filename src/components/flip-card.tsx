@@ -79,7 +79,7 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
         <div className="flip-card-face flip-card-front flex flex-col justify-center rounded-2xl border border-border bg-surface p-5 pb-14" aria-hidden={flipped} inert={flipped}>
           {eyebrow && <p className="mb-4 font-mono text-xs uppercase tracking-wider text-accent">{eyebrow}</p>}
           <h3 className="font-display text-xl tracking-tight">{title}</h3>
-          <p className="mt-5 text-xs text-muted">Hover or tap to explore ↻</p>
+          <p className="mt-5 text-xs text-muted">Hover or select Flip card to explore ↻</p>
         </div>
         <div id={id} className="flip-card-face flip-card-back flex flex-col rounded-2xl border border-border bg-surface p-5 pb-14" aria-hidden={!flipped} inert={!flipped}>
           <h3 className="mb-3 shrink-0 font-display text-lg tracking-tight">{title}</h3>
