@@ -18,6 +18,7 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
   };
   const scheduleFlip = (next: boolean) => {
     cancelHover();
+    if (next === flipped) return;
     hoverTimer.current = setTimeout(() => {
       setFlipped(next);
       setScrollPaused(false);
