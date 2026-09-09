@@ -9,6 +9,8 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
   const [scrollPaused, setScrollPaused] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const rotationRef = useRef<HTMLDivElement>(null);
+  const manualScrollUntil = useRef(0);
+  const allowManualScroll = () => { manualScrollUntil.current = performance.now() + 2000; };
   const hoverTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cancelHover = () => {
     if (hoverTimer.current !== null) clearTimeout(hoverTimer.current);
@@ -39,8 +41,7 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
       const reset = setTimeout(() => { content.scrollTop = 0; }, flipDuration);
       return () => clearTimeout(reset);
     }
-    const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
-    if (scrollPaused || reducedMotion.matches) return;
+    if (scrollPaused) return;
 
     // Approximate 150 words/minute, bounded for sparse or unusually dense cards.
     const words = content.textContent?.trim().split(/\s+/).length || 1;
@@ -49,7 +50,10 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
     let previousTime: number | null = null;
     let frame = 0;
     const advance = (now: number) => {
-      if (document.hidden) { previousTime = null; }
+      if (document.hidden || now < manualScrollUntil.current) {
+        previousTime = null;
+        position = content.scrollTop;
+      }
       else {
         if (previousTime !== null) position += pixelsPerSecond * Math.min(now - previousTime, 64) / 1000;
         previousTime = now;
@@ -58,12 +62,10 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
       }
       frame = requestAnimationFrame(advance);
     };
-    // Finish rotating, then give the reader three seconds before moving text.
-    const start = setTimeout(() => { frame = requestAnimationFrame(advance); }, flipDuration + 3000);
+    // Begin visibly soon after the face settles. The Pause control stays available.
+    const start = setTimeout(() => { frame = requestAnimationFrame(advance); }, flipDuration + 750);
     const stop = () => { clearTimeout(start); cancelAnimationFrame(frame); };
-    const motionChanged = () => { if (reducedMotion.matches) stop(); };
-    reducedMotion.addEventListener("change", motionChanged);
-    return () => { stop(); reducedMotion.removeEventListener("change", motionChanged); };
+    return stop;
   }, [flipped, scrollPaused]);
   const id = useId();
   return (
@@ -81,8 +83,8 @@ export function FlipCard({ title, eyebrow, children, className = "" }: {
         <div id={id} className="flip-card-face flip-card-back flex flex-col rounded-2xl border border-border bg-surface p-5 pb-14" aria-hidden={!flipped} inert={!flipped}>
           <h3 className="mb-3 shrink-0 font-display text-lg tracking-tight">{title}</h3>
           <div ref={contentRef} className="flip-card-content min-h-0 flex-1 overflow-y-auto overscroll-contain pr-2" role="region" aria-label={`${title} details`} tabIndex={flipped ? 0 : -1}
-            onWheel={() => setScrollPaused(true)} onPointerDown={() => setScrollPaused(true)}
-            onKeyDown={(event) => { if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) setScrollPaused(true); }}>
+            onWheel={allowManualScroll} onTouchMove={allowManualScroll}
+            onKeyDown={(event) => { if (["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(event.key)) allowManualScroll(); }}>
             {children}
           </div>
         </div>
