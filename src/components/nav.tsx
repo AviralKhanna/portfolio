@@ -11,6 +11,7 @@ const links = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
+  { href: "/razorpay", label: "Razorpay" },
   { href: "/blog", label: "Blog" },
 ];
 

@@ -17,25 +17,56 @@ export type Experience = {
 
 export const experience: Experience[] = [
   {
-    slug: "razorpay",
-    company: "Razorpay",
-    role: "Software Intern, AI & Automation",
-    location: "Bengaluru, India",
-    start: "Sep 2025",
-    end: "Present",
-    current: true,
-    brand: "#3395FF",
-    mark: "R",
-    logo: "razorpay",
-    summary:
-      "On Razorpay's AI & Automation core team, building agentic tooling and log-detection systems for one of India's largest payment platforms.",
-    bullets: [
-      "Designed and deployed an internal log-detection alert automation system processing 10 crore+ logs/day, delivering real-time insights and cutting incident-response latency by ~40% in live scenarios.",
-      "Built a fully automated agentic AI workflow using Pidata (agno), Coralogix, DevRev, and Slack integrations to orchestrate multi-step AI decision flows, improving efficiency by 60%.",
-      "Diagnosed and fixed production bugs across critical payment products, including core payments, routing, terminals, orders, webhooks, refunds, ledger, and settlements, keeping the systems reliable.",
-    ],
-    tags: ["Agentic AI", "Automation", "Coralogix", "DevRev", "Python"],
-  },
+  "slug": "teknikoz",
+  "company": "Teknikoz Software Private Limited",
+  "role": "Full Stack Developer",
+  "start": "Jul 2026",
+  "end": "Present",
+  "current": true,
+  "brand": "#8b5cf6",
+  "mark": "T",
+  "summary": "Building AI-enabled web applications, full-stack products, backend services and third-party integrations.",
+  "bullets": [
+    "Develop and enhance full-stack applications and CRM workflows across frontend, backend, REST APIs and integrations.",
+    "Build features, resolve bugs and connect AI/LLM capabilities across the software development lifecycle."
+  ],
+  "tags": [
+    "Full-Stack",
+    "REST APIs",
+    "AI / LLM",
+    "Integrations"
+  ]
+},
+  {
+  "slug": "razorpay",
+  "company": "Razorpay",
+  "role": "Intern, Product Support Engineering",
+  "location": "Bengaluru, India",
+  "start": "Sep 2025",
+  "end": "Jun 2026",
+  "current": false,
+  "brand": "#3395FF",
+  "mark": "R",
+  "logo": "razorpay",
+  "summary": "Built merchant-operation automation, AI triage and monitoring tools alongside PGOS production development: 306 automated fixes, 98 ReKYC resets, and about 93 hours saved.",
+  "bullets": [
+    "Contributed to PGOS production development and payment-flow reliability; automated workflows across payments, webhooks, refunds, ledger and settlements.",
+    "Built six shell scripts with merchant-state API routing, pre-flight checks, dry-run support and 50+ field aliases. Automated 306 data fixes and 98 ReKYC resets, saving approximately 93 hours.",
+    "Built skills:merchant-pse, triggered on ticket creation to fetch live merchant state and diagnose onboarding issues. Recorded 231 invocations, with approximately 90-second triage.",
+    "Handled 420 tickets with 280 solo resolutions and a 92.1% SLA hit rate in the onboarding report.",
+    "Reduced Post Payments volume from 500+ to 40 tickets per month through automation, code optimization and root-cause fixes.",
+    "Built Coralogix-integrated AI monitoring processing approximately 10 million logs per day, reducing response latency by about 40%."
+  ],
+  "tags": [
+    "PGOS",
+    "API Design",
+    "Shell Automation",
+    "AI Triage",
+    "Coralogix",
+    "DevRev"
+  ],
+  "link": "/razorpay"
+},
   {
     slug: "ccs",
     company: "CCS (Cognito Continuum Society)",
@@ -48,10 +79,10 @@ export const experience: Experience[] = [
     mark: "C",
     link: "https://cognito-continuum-society.vercel.app/",
     summary:
-      "Founded and lead CCS, a student and faculty product lab that ships real AI products used by more than 1500 people across the university.",
+      "Founded and lead CCS, a student and faculty product lab whose initiatives reached 5,000+ users.",
     bullets: [
-      "Founded and lead a team of 34 students and 14 faculty with ₹1.5L+ in funding and 1500+ users.",
-      "Shipped DASES, a patented agentic AI answer-sheet evaluation system built with OCR, LaTeX parsing, rubric logic, and fine-tuned LLMs via LangGraph, tested on more than 1500 students across Law, CS, and Health Sciences.",
+      "Founded and lead a team of 140+ students and 20 faculty with ₹1.5L+ in funding and 5,000+ users.",
+      "Shipped DASES, an agentic AI answer-sheet evaluation system with two patents drafted built with OCR, LaTeX parsing, rubric logic, and fine-tuned LLMs via LangGraph, tested on more than 1500 students across Law, CS, and Health Sciences.",
       "Built a Resume to JD Matcher (500+ active users), an Internship Evaluator portal, a UPES custom chatbot on graph databases, and LexiBot, a SHODH-funded legal assistant.",
     ],
     tags: ["Agentic AI", "LangGraph", "OCR", "Leadership", "Full-Stack"],

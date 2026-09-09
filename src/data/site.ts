@@ -3,8 +3,8 @@ export const site = {
   role: "AI/ML Engineer & Full-Stack Developer",
   tagline:
     "I build agentic AI systems and full-stack products that ship to real users.",
-  location: "Bengaluru / Dehradun, India",
-  email: "aviralkhanna.official@gmail.com",
+  location: "Delhi, India",
+  email: "aviralkhanna.professional@gmail.com",
   phone: "+91 95573 79222",
   resume: "/resume.pdf",
   socials: {
@@ -12,18 +12,18 @@ export const site = {
     linkedin: "https://www.linkedin.com/in/aviral-khanna-b43586267/",
     leetcode: "https://leetcode.com/u/Aviral_Khanna/",
     medium: "https://medium.com/@projectcsework",
-    email: "mailto:aviralkhanna.official@gmail.com",
+    email: "mailto:aviralkhanna.professional@gmail.com",
   },
   // A personal, human intro for the home page (not a job pitch)
   intro:
-    "I'm a final-year CS student who likes turning research-grade AI into things people actually use. Most days you'll find me shipping products with my student lab, digging into a new model, or grinding LeetCode.",
+    "I'm a 2026 Computer Science graduate and Full Stack Developer at Teknikoz. I build backend services, AI-enabled products, and automation that people use — from payment operations at Razorpay to student-facing products at CCS.",
   // Short bio for the hero / meta
   summary:
-    "Final-year B.Tech (Honours) CS student specialising in AI & ML at UPES (8.9 CGPA). Currently on the AI & Automation core team at Razorpay. Founder of CCS, patent-holder, and SHODH grant recipient, with research collaborations at IIIT Delhi and Ulster University.",
+    "2026 UPES Computer Science (Honours) graduate specialising in AI & ML. Full Stack Developer at Teknikoz, previously a Product Support Engineering intern at Razorpay. Founder of CCS and SHODH grant recipient, with AI product and research experience.",
   // Longer about paragraphs (kept short)
   about: [
-    "Final-year B.Tech (Hons.) CS student at UPES specialising in AI & ML, currently on the AI & Automation core team at Razorpay.",
-    "I founded CCS, a 34-student, 14-faculty lab whose products reach more than 1500 people, and I have researched speech-driven diagnostics with PhD scholars at IIIT Delhi and Ulster University.",
+    "I graduated from UPES in 2026 with a B.Tech (Honours) in Computer Science specialising in AI & ML. I now work as a Full Stack Developer at Teknikoz, building applications, backend services, REST APIs and integrations.",
+    "At Razorpay, I contributed to PGOS development and built merchant-operation automation, AI triage and log-monitoring tools. I also founded CCS, mentoring 140+ students alongside 20 faculty; its initiatives reached 5,000+ users. My research work includes speech-based deep learning with IIIT Delhi and Ulster University collaborators.",
     "I care about taking AI from notebook to production: clean pipelines, sensible system design, and tools people actually use.",
   ],
   achievements: [

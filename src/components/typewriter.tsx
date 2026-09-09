@@ -15,19 +15,21 @@ export function Typewriter({
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
+    if (!phrases.length) return;
     const current = phrases[index % phrases.length];
     let delay = deleting ? 45 : 85;
 
     if (!deleting && text === current) {
       delay = 1600; // pause at full word
     } else if (deleting && text === "") {
-      setDeleting(false);
-      setIndex((i) => i + 1);
       delay = 250;
     }
 
     const t = setTimeout(() => {
-      if (!deleting && text === current) {
+      if (deleting && text === "") {
+        setDeleting(false);
+        setIndex((i) => i + 1);
+      } else if (!deleting && text === current) {
         setDeleting(true);
       } else {
         setText(

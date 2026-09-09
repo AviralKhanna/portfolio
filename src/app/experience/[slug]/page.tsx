@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 import { experience } from "@/data/experience";
 import { site } from "@/data/site";
 import { Container } from "@/components/ui";
@@ -18,6 +18,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  if (slug === "razorpay") redirect("/razorpay");
   const item = experience.find((e) => e.slug === slug);
   if (!item) return { title: "Experience not found" };
   return { title: `${item.role} · ${item.company}`, description: item.summary };
@@ -29,6 +30,7 @@ export default async function ExperienceDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
+  if (slug === "razorpay") redirect("/razorpay");
   const item = experience.find((e) => e.slug === slug);
   if (!item) notFound();
 

@@ -35,13 +35,13 @@ export const education = [
   {
     school: "UPES, Dehradun",
     degree: "B.Tech (Hons.) CS, AI & ML",
-    detail: "8.9 CGPA",
+    detail: "8.80/10 calculated GPA (credit-weighted)",
     year: "2022 to 2026",
   },
   {
     school: "St Conrad's Inter College",
     degree: "ISC (12th) · ICSE (10th), Agra",
-    detail: "92.5% · 95.3%",
+    detail: "12th: 92.5% (best four) · 10th: 94.6% (English + best four)",
     year: "",
   },
 ];

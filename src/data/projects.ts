@@ -20,9 +20,9 @@ export const projects: Project[] = [
     title: "DASES",
     subtitle: "Descriptive Answer Sheet Evaluation System",
     blurb:
-      "A patented agentic AI system that grades handwritten answer sheets from start to finish.",
+      "An agentic AI system that grades handwritten answer sheets from start to finish.",
     description:
-      "An agentic AI pipeline for evaluating handwritten exam answers using OCR, LaTeX parsing, rubric-based logic, and fine-tuned LLMs orchestrated via LangGraph. Ships rubric management, stepwise logical grading, natural-language feedback, secure report storage, and admin dashboards. Approved by the university and tested on 1000–1500 students across Law, CS, Health Sciences, and Commerce.",
+      "An agentic AI pipeline for evaluating handwritten exam answers using OCR, LaTeX parsing, rubric-based logic, and fine-tuned LLMs orchestrated via LangGraph. Ships rubric management, stepwise logical grading, natural-language feedback, secure report storage, and admin dashboards. Approved by the university and evaluated across 1,500+ students across Law, CS, Health Sciences, and Commerce.",
     tags: ["Agentic AI", "LangGraph", "OCR", "LLMs", "Full-Stack"],
     year: "2024",
     category: "AI/ML",
@@ -145,14 +145,14 @@ export const projects: Project[] = [
     title: "Internship Evaluator",
     subtitle: "UPES Dashboard Prototype",
     blurb:
-      "A dashboard that streamlines internship evaluation across the university, scheduled to reach 7000+ users.",
+      "A dashboard that streamlines internship evaluation across the university, used by 1,000+ people.",
     description:
-      "A full-stack dashboard prototype for evaluating and tracking student internships at UPES, built under CCS. It handles submissions, reviews, and reporting, and is scheduled to roll out to 7000+ users.",
+      "A full-stack dashboard prototype for evaluating and tracking student internships at UPES, built under CCS. It handles submissions, reviews, and reporting, with 1,000+ actual users.",
     tags: ["React", "Node.js", "Full-Stack"],
     year: "2025",
     category: "Full-Stack",
     live: "https://upes-samarth-internship.vercel.app/login",
-    metrics: [{ label: "Scheduled uses", value: "7000+" }],
+    metrics: [{ label: "Users", value: "1,000+" }],
   },
   {
     slug: "investor-founder-mapping",

@@ -7,7 +7,6 @@ import { ProjectCard } from "@/components/project-card";
 import { Typewriter } from "@/components/typewriter";
 import { CompanyLogo, TechMark, Glyph } from "@/components/brand";
 import { CodingSection } from "@/components/coding";
-import { techStack } from "@/data/skills";
 import { platformIcons } from "@/data/icons";
 import {
   GitHubIcon,
@@ -28,15 +27,15 @@ const focus = [
 const strip = ["python", "typescript", "react", "next", "node", "pytorch", "docker", "gemini"];
 
 const facts = [
-  "Final-year @ UPES",
-  "8.9 CGPA",
+  "2026 UPES graduate",
+  "Full Stack Developer @ Teknikoz",
   "Founder of CCS",
-  "1500+ users reached",
+  "5,000+ users reached through CCS",
 ];
 
 // Notable names, highlighted big.
 const bigNames = [
-  { name: "Razorpay", href: "/experience/razorpay", brand: "#3395FF" },
+  { name: "Razorpay", href: "/razorpay", brand: "#3395FF" },
   { name: "IBM", href: "/experience/ibm", brand: "#0F62FE" },
   { name: "IIIT Delhi", href: "/experience/research-iiitd-ulster", brand: "#e11d48" },
   { name: "Ulster University", href: "/experience/research-iiitd-ulster", brand: "#e11d48" },
@@ -169,7 +168,7 @@ export default function Home() {
           <div className="grid gap-5 lg:grid-cols-2">
             {/* Latest experience */}
             <Link
-              href={`/experience/${razorpay.slug}`}
+              href="/razorpay"
               className="group relative flex flex-col overflow-hidden rounded-2xl border bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
               style={{
                 borderColor: `color-mix(in srgb, ${razorpay.brand} 32%, transparent)`,
@@ -193,7 +192,7 @@ export default function Home() {
                     className="text-xs font-semibold uppercase tracking-wider"
                     style={{ color: razorpay.brand }}
                   >
-                    Latest experience
+                    Razorpay · Featured work
                   </p>
                   <p className="mt-1 text-sm text-muted">
                     {razorpay.company} · {razorpay.location}
@@ -210,7 +209,7 @@ export default function Home() {
                 className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium transition-transform group-hover:translate-x-0.5"
                 style={{ color: razorpay.brand }}
               >
-                View this role <ArrowUpRight width={15} height={15} />
+                Explore my Razorpay work <ArrowUpRight width={15} height={15} />
               </span>
             </Link>
 
