@@ -1,3 +1,5 @@
+import { FlipCard } from "@/components/flip-card";
+import { ContactDetails } from "@/components/contact-details";
 import Link from "next/link";
 import { site } from "@/data/site";
 import { projects } from "@/data/projects";
@@ -64,7 +66,7 @@ export default function Home() {
             </div>
 
             <h1 className="reveal font-display text-6xl leading-[1.02] tracking-tight sm:text-8xl">
-              {site.name}
+              {site.name}<span className="mt-3 block text-3xl text-accent sm:text-4xl">Portfolio</span>
             </h1>
 
             <p className="reveal-2 mt-5 text-xl text-muted sm:text-2xl">
@@ -167,13 +169,7 @@ export default function Home() {
           <SectionHeading eyebrow="Highlights" title="Where to start" />
           <div className="grid gap-5 lg:grid-cols-2">
             {/* Latest experience */}
-            <Link
-              href="/razorpay"
-              className="group relative flex flex-col overflow-hidden rounded-2xl border bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
-              style={{
-                borderColor: `color-mix(in srgb, ${razorpay.brand} 32%, transparent)`,
-              }}
-            >
+            <FlipCard title="Engineering at Razorpay" eyebrow="Featured work">
               <div
                 className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-70"
                 style={{
@@ -205,19 +201,11 @@ export default function Home() {
               <p className="relative mt-2 flex-1 text-sm leading-relaxed text-muted">
                 {razorpay.summary}
               </p>
-              <span
-                className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium transition-transform group-hover:translate-x-0.5"
-                style={{ color: razorpay.brand }}
-              >
-                Explore my Razorpay work <ArrowUpRight width={15} height={15} />
-              </span>
-            </Link>
+              <Link href="/razorpay" className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent">Explore my Razorpay work <ArrowUpRight width={15} height={15} /></Link>
+            </FlipCard>
 
             {/* Flagship project */}
-            <Link
-              href={`/projects/${dases.slug}`}
-              className="group relative flex flex-col overflow-hidden rounded-2xl border border-accent-40 bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
-            >
+            <FlipCard title={dases.title} eyebrow="Flagship project">
               <div
                 className="pointer-events-none absolute inset-x-0 top-0 h-24 opacity-70"
                 style={{
@@ -254,10 +242,8 @@ export default function Home() {
                   ))}
                 </div>
               )}
-              <span className="relative mt-6 inline-flex items-center gap-1 text-sm font-medium text-accent transition-transform group-hover:translate-x-0.5">
-                View this project <ArrowUpRight width={15} height={15} />
-              </span>
-            </Link>
+              <Link href={`/projects/${dases.slug}`} className="mt-5 inline-flex text-sm text-accent">Explore the project →</Link>
+            </FlipCard>
           </div>
         </Container>
       </section>
@@ -323,16 +309,18 @@ export default function Home() {
 
       {/* CTA */}
       <Container className="py-20">
+        <section id="contact" className="scroll-mt-24" aria-label="Get in touch">
         <div className="relative overflow-hidden rounded-3xl border border-border bg-surface p-10 text-center sm:p-16">
           <div className="glow opacity-70" />
           <div className="relative">
             <h2 className="font-display text-4xl tracking-tight sm:text-5xl">
-              Let&apos;s build something.
+              Get in touch
             </h2>
             <p className="mx-auto mt-4 max-w-md text-muted">
               I&apos;m open to full-time roles and interesting collaborations. The
               fastest way to reach me is email.
             </p>
+            <ContactDetails />
             <a
               href={site.socials.email}
               className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-accent-foreground transition-opacity hover:opacity-90"
@@ -341,6 +329,7 @@ export default function Home() {
             </a>
           </div>
         </div>
+        </section>
       </Container>
     </>
   );

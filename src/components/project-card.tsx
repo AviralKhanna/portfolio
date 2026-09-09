@@ -1,18 +1,12 @@
 import Link from "next/link";
+import { FlipCard } from "./flip-card";
 import type { Project } from "@/data/projects";
 import { GitHubIcon, ArrowUpRight, ArrowRight } from "./icons";
 
 export function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group relative flex h-full flex-col rounded-2xl border border-border bg-surface p-6 transition-all duration-300 hover:-translate-y-1 hover:border-accent-40 hover:shadow-xl hover:shadow-black/5">
-      {/* Stretched link: whole card opens the detail page */}
-      <Link
-        href={`/projects/${project.slug}`}
-        className="absolute inset-0 z-0 rounded-2xl"
-        aria-label={`${project.title} details`}
-      />
-
-      <div className="pointer-events-none relative z-10 flex flex-1 flex-col">
+    <FlipCard title={project.title} eyebrow={`${project.category} · ${project.year}`}>
+      <div className="relative flex flex-1 flex-col">
         <div className="mb-3 flex items-center justify-between gap-3">
           <span className="text-xs font-medium uppercase tracking-wider text-accent">
             {project.category}
@@ -20,9 +14,6 @@ export function ProjectCard({ project }: { project: Project }) {
           <span className="text-xs text-muted">{project.year}</span>
         </div>
 
-        <h3 className="font-display text-xl leading-tight tracking-tight">
-          {project.title}
-        </h3>
         {project.subtitle && (
           <p className="mt-0.5 text-sm font-medium text-muted">
             {project.subtitle}
@@ -56,8 +47,7 @@ export function ProjectCard({ project }: { project: Project }) {
           ))}
         </div>
 
-        {/* Prominent links row — clickable above the stretched link */}
-        <div className="mt-5 flex items-center gap-2 border-t border-border pt-4">
+        <div className="mt-5 flex flex-wrap items-center gap-2 border-t border-border pt-4">
           {project.live && (
             <a
               href={project.live}
@@ -88,16 +78,16 @@ export function ProjectCard({ project }: { project: Project }) {
               <GitHubIcon width={13} height={13} /> Code
             </a>
           )}
-          <span className="ml-auto inline-flex items-center gap-1 text-xs text-muted transition-colors group-hover:text-accent">
+          <Link href={`/projects/${project.slug}`} className="ml-auto inline-flex items-center gap-1 text-xs text-muted hover:text-accent">
             Details
             <ArrowRight
               width={13}
               height={13}
               className="transition-transform group-hover:translate-x-0.5"
             />
-          </span>
+          </Link>
         </div>
       </div>
-    </article>
+    </FlipCard>
   );
 }

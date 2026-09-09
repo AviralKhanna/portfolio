@@ -1,5 +1,6 @@
 export const site = {
   name: "Aviral Khanna",
+  url: "https://aviralkhannaportfolio.vercel.app/",
   role: "AI/ML Engineer & Full-Stack Developer",
   tagline:
     "I build agentic AI systems and full-stack products that ship to real users.",

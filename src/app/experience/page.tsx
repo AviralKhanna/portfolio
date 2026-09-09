@@ -1,3 +1,4 @@
+import { FlipCard } from "@/components/flip-card";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { experience } from "@/data/experience";
@@ -88,13 +89,8 @@ export default function ExperiencePage() {
                 className="absolute -left-[9px] top-2 hidden h-4 w-4 rounded-full ring-4 ring-background sm:block"
                 style={{ backgroundColor: e.brand }}
               />
-              <article className="group relative rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent-40 hover:shadow-lg hover:shadow-black/5">
-                <Link
-                  href={`/experience/${e.slug}`}
-                  className="absolute inset-0 z-0 rounded-2xl"
-                  aria-label={`${e.role} at ${e.company}`}
-                />
-                <div className="pointer-events-none relative z-10">
+              <FlipCard title={e.role} eyebrow={e.company}>
+                <div className="relative">
                   <div className="flex items-start gap-4">
                     <CompanyLogo logo={e.logo} mark={e.mark} brand={e.brand} />
                     <div className="min-w-0 flex-1">
@@ -146,7 +142,8 @@ export default function ExperiencePage() {
                     )}
                   </div>
                 </div>
-              </article>
+                <Link href={`/experience/${e.slug}`} className="mt-5 inline-flex text-sm text-accent">Read about my work →</Link>
+              </FlipCard>
             </div>
           </li>
         ))}

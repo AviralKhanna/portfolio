@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+.flip-card { perspective: 1200px; }
+.flip-card-inner { display: grid; transform-style: preserve-3d; transition: transform 550ms cubic-bezier(.2,.7,.2,1); }
+.flip-card[data-flipped="true"] .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-face { grid-area: 1 / 1; min-width: 0; backface-visibility: hidden; -webkit-backface-visibility: hidden; overflow-wrap: anywhere; }
+.flip-card-back { transform: rotateY(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .flip-card-inner { transition: none; }
+}
+
 /* Class-based dark mode (toggle adds `.dark` on <html>) */
 @custom-variant dark (&:where(.dark, .dark *));
 

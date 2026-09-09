@@ -27,18 +27,18 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://aviralkhannaportfolio.vercel.app"),
   title: {
-    default: `${site.name} · ${site.role}`,
-    template: `%s · ${site.name}`,
+    default: "Aviral Khanna Portfolio",
+    template: "%s · Aviral Khanna Portfolio",
   },
   description: site.summary,
   openGraph: {
-    title: `${site.name} · ${site.role}`,
+    title: "Aviral Khanna Portfolio",
     description: site.summary,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.name} · ${site.role}`,
+    title: "Aviral Khanna Portfolio",
     description: site.summary,
   },
 };

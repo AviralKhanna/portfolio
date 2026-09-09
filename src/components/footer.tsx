@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ContactDetails } from "./contact-details";
 import { site } from "@/data/site";
 import { Glyph } from "./brand";
 import { platformIcons } from "@/data/icons";
@@ -13,6 +14,7 @@ export function Footer() {
           <p className="mt-1 text-sm text-muted">
             {site.role} · {site.location}
           </p>
+          <ContactDetails />
         </div>
 
         <div className="flex items-center gap-2">

@@ -1,3 +1,4 @@
+import { FlipCard } from "./flip-card";
 import Link from "next/link";
 import { leetcode, github, dsaTopics } from "@/data/coding";
 import { platformIcons } from "@/data/icons";
@@ -10,12 +11,7 @@ export function CodingSection() {
   return (
     <div className="grid gap-5 lg:grid-cols-[1.4fr_1fr]">
       {/* LeetCode card */}
-      <Link
-        href={leetcode.url}
-        target="_blank"
-        rel="noreferrer"
-        className="group relative overflow-hidden rounded-2xl border border-border bg-surface p-7 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
-      >
+      <FlipCard title="LeetCode" eyebrow="Problem-solving">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span
@@ -81,7 +77,8 @@ export function CodingSection() {
             );
           })}
         </div>
-      </Link>
+        <Link href={leetcode.url} target="_blank" rel="noreferrer" className="mt-5 inline-flex text-sm text-accent">View LeetCode profile ↗</Link>
+      </FlipCard>
 
       {/* side column: github + topics */}
       <div className="flex flex-col gap-5">
@@ -107,7 +104,7 @@ export function CodingSection() {
           />
         </Link>
 
-        <div className="flex-1 rounded-2xl border border-border bg-surface p-6">
+        <FlipCard title="Strong topics" eyebrow="Data structures & algorithms">
           <p className="text-xs font-semibold uppercase tracking-wider text-muted">
             Strong topics
           </p>
@@ -121,7 +118,7 @@ export function CodingSection() {
               </span>
             ))}
           </div>
-        </div>
+        </FlipCard>
       </div>
     </div>
   );

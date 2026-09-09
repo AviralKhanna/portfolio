@@ -1,3 +1,4 @@
+import { FlipCard } from "@/components/flip-card";
 import type { Metadata } from "next";
 import { site } from "@/data/site";
 import { techStack, focusAreas, education } from "@/data/skills";
@@ -50,17 +51,13 @@ export default function AboutPage() {
           </h2>
           <div className="space-y-4">
             {education.map((e) => (
-              <div
-                key={e.school}
-                className="rounded-xl border border-border bg-surface p-5"
-              >
-                <p className="font-semibold tracking-tight">{e.school}</p>
+              <FlipCard key={e.school} title={e.school} eyebrow="Education">
                 <p className="mt-1 text-sm text-muted">{e.degree}</p>
                 <div className="mt-3 flex items-center justify-between text-xs">
                   <span className="font-medium text-accent">{e.detail}</span>
                   {e.year && <span className="text-muted">{e.year}</span>}
                 </div>
-              </div>
+              </FlipCard>
             ))}
           </div>
         </aside>

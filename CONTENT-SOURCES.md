@@ -12,3 +12,7 @@ Professional details follow Aviral's confirmed profile as of 9 September 2026. T
 - The downloadable résumé is the latest reviewed backend/software version supplied from the professional-profile workspace.
 
 The public case study is `/razorpay`. The previous `/experience/razorpay` route redirects there.
+
+## Contact and document preferences — 9 September 2026
+
+Professional contact: aviralkhanna.professional@gmail.com; +91 95573 79222; https://aviralkhannaportfolio.vercel.app/. The downloadable résumé already contains these details. The user has locked the current résumé and cover-letter formats: future content updates must preserve the layout, typography, margins and section order. The canonical workspace stores `planning/DOCUMENT-FORMAT-LOCK.json` with reference hashes.
