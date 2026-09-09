@@ -66,7 +66,7 @@ export default function Home() {
             </div>
 
             <h1 className="reveal font-display text-6xl leading-[1.02] tracking-tight sm:text-8xl">
-              {site.name}<span className="mt-3 block text-3xl text-accent sm:text-4xl">Portfolio</span>
+              {site.name}{" "}<span className="mt-3 block text-3xl text-accent sm:text-4xl">Portfolio</span>
             </h1>
 
             <p className="reveal-2 mt-5 text-xl text-muted sm:text-2xl">
@@ -284,12 +284,12 @@ export default function Home() {
             title="Where I've worked"
             action={{ href: "/experience", label: "Full timeline" }}
           />
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {experience.slice(0, 4).map((e) => (
               <Link
                 key={e.slug}
                 href={`/experience/${e.slug}`}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent-40"
+                className="group flex min-w-0 items-center gap-4 rounded-2xl border border-border bg-surface p-5 transition-all hover:-translate-y-0.5 hover:border-accent-40"
               >
                 <CompanyLogo logo={e.logo} mark={e.mark} brand={e.brand} />
                 <div className="min-w-0 flex-1">

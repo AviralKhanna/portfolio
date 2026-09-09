@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { site } from "@/data/site";
 import { ThemeToggle } from "./theme-toggle";
 import { MenuIcon, CloseIcon } from "./icons";
@@ -18,6 +18,7 @@ const links = [
 export function Nav() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -28,7 +29,13 @@ export function Nav() {
     .join("");
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/75 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/75 backdrop-blur-xl"
+      onKeyDown={(event) => {
+        if (event.key === "Escape" && open) {
+          setOpen(false);
+          menuButton.current?.focus();
+        }
+      }}>
       <nav className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
         <Link
           href="/"
@@ -68,7 +75,10 @@ export function Nav() {
         <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
+            ref={menuButton}
             aria-label="Menu"
+            aria-expanded={open}
+            aria-controls="mobile-navigation"
             onClick={() => setOpen((o) => !o)}
             className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-border text-muted"
           >
@@ -78,7 +88,7 @@ export function Nav() {
       </nav>
 
       {open && (
-        <div className="border-t border-border bg-background md:hidden">
+        <div id="mobile-navigation" className="border-t border-border bg-background md:hidden">
           <div className="mx-auto flex max-w-5xl flex-col px-5 py-2">
             {links.map((l) => (
               <Link
